@@ -1,0 +1,98 @@
+[
+  {
+    "id": "pre-tool-use-formatter",
+    "name": "Pre-Tool-Use Formatter",
+    "event": "PreToolUse",
+    "category": "pre-execution",
+    "description": "Validates and formats input before any tool is invoked. Ensures data integrity and prevents malformed payloads from reaching downstream tools.",
+    "author": "maradantaspereira-eng",
+    "status": "active",
+    "language": "python",
+    "githubUrl": "https://github.com/maradantaspereira-eng/maradantas/blob/main/hooks/pre_tool_use_formatter.py",
+    "tags": ["validation", "formatting", "input-sanitization"]
+  },
+  {
+    "id": "post-tool-use-logger",
+    "name": "Post-Tool-Use Logger",
+    "event": "PostToolUse",
+    "category": "post-execution",
+    "description": "Captures tool execution results and writes structured logs for observability pipelines. Supports JSON and plaintext output formats.",
+    "author": "maradantaspereira-eng",
+    "status": "active",
+    "language": "python",
+    "githubUrl": "https://github.com/maradantaspereira-eng/maradantas/blob/main/hooks/post_tool_use_logger.py",
+    "tags": ["logging", "observability", "output"]
+  },
+  {
+    "id": "pre-commit-lint",
+    "name": "Pre-Commit Linter",
+    "event": "PreToolUse",
+    "category": "pre-commit",
+    "description": "Runs static analysis on staged files before committing. Blocks commits that fail linting rules, enforcing code quality standards across the repository.",
+    "author": "maradantaspereira-eng",
+    "status": "active",
+    "language": "bash",
+    "githubUrl": "https://github.com/maradantaspereira-eng/maradantas/blob/main/hooks/pre_commit_lint.sh",
+    "tags": ["linting", "quality", "pre-commit"]
+  },
+  {
+    "id": "session-start-banner",
+    "name": "Session Start Banner",
+    "event": "SessionStart",
+    "category": "session",
+    "description": "Displays a welcome banner and project context summary at the start of each Claude Code session. Helps orient the agent to current project state.",
+    "author": "maradantaspereira-eng",
+    "status": "active",
+    "language": "bash",
+    "githubUrl": "https://github.com/maradantaspereira-eng/maradantas/blob/main/hooks/session_start_banner.sh",
+    "tags": ["session", "context", "ux"]
+  },
+  {
+    "id": "notification-slack",
+    "name": "Slack Notifier",
+    "event": "Notification",
+    "category": "notification",
+    "description": "Sends structured Slack messages when Claude Code triggers notification events. Configurable webhook URL and message templates via environment variables.",
+    "author": "maradantaspereira-eng",
+    "status": "inactive",
+    "language": "python",
+    "githubUrl": "https://github.com/maradantaspereira-eng/maradantas/blob/main/hooks/notification_slack.py",
+    "tags": ["notifications", "slack", "integrations"]
+  },
+  {
+    "id": "stop-audit",
+    "name": "Stop Auditor",
+    "event": "Stop",
+    "category": "post-execution",
+    "description": "Audits the final state of tool usage at session end. Generates a summary report of all tools invoked, commands run, and files modified during the session.",
+    "author": "maradantaspereira-eng",
+    "status": "active",
+    "language": "python",
+    "githubUrl": "https://github.com/maradantaspereira-eng/maradantas/blob/main/hooks/stop_audit.py",
+    "tags": ["audit", "reporting", "session"]
+  },
+  {
+    "id": "pre-bash-guard",
+    "name": "Bash Command Guard",
+    "event": "PreToolUse",
+    "category": "pre-execution",
+    "description": "Intercepts Bash tool calls and blocks execution of potentially destructive commands (rm -rf, git reset --hard, etc.). Prompts for confirmation on flagged patterns.",
+    "author": "maradantaspereira-eng",
+    "status": "active",
+    "language": "python",
+    "githubUrl": "https://github.com/maradantaspereira-eng/maradantas/blob/main/hooks/pre_bash_guard.py",
+    "tags": ["security", "bash", "guard"]
+  },
+  {
+    "id": "post-edit-snapshot",
+    "name": "File Edit Snapshot",
+    "event": "PostToolUse",
+    "category": "post-execution",
+    "description": "Creates timestamped snapshots of files immediately after Edit or Write tool operations. Provides a lightweight rollback mechanism for local file changes.",
+    "author": "maradantaspereira-eng",
+    "status": "inactive",
+    "language": "bash",
+    "githubUrl": "https://github.com/maradantaspereira-eng/maradantas/blob/main/hooks/post_edit_snapshot.sh",
+    "tags": ["snapshots", "rollback", "file-management"]
+  }
+]
