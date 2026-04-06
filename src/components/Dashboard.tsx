@@ -4,6 +4,7 @@ import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { Webhook } from "lucide-react";
 import HookCard, { Hook } from "./HookCard";
 import HookFilter, { Category } from "./HookFilter";
+import OllamaChat from "./OllamaChat";
 
 interface DashboardProps {
   hooks: Hook[];
@@ -177,6 +178,9 @@ export default function Dashboard({ hooks }: DashboardProps) {
       <footer className="border-t border-gray-100 py-6 text-center text-xs text-gray-400">
         HookHub &mdash; Built with Next.js + Tailwind CSS
       </footer>
+
+      {/* Ollama gemma4 AI assistant — floats in the bottom-right corner */}
+      <OllamaChat />
     </div>
   );
 }
